@@ -129,7 +129,23 @@ updateHang Nothing = do {
 
 updateRound ::
 updateRound = do {
-    showHangingMan
+    showHangingMan strikes
     showTriedLetters
     showPanel
 }
+
+showHangingMan :: Int -> IO ()
+showHangingMan 1 = putStrLn "|"
+showHangingMan 2 = putStrLn "||"
+showHangingMan 3 = putStrLn "|||"
+showHangingMan 4 = putStrLn "||||"
+showHangingMan 5 = putStrLn "|||||"
+showHangingMan 6 = putStrLn "||||||"
+showHangingMan 6 = putStrLn "|||||||"
+showHangingMan _ = putStrLn "error"
+
+showTriedLetters :: String -> IO ()
+showTriedLetters letters = putStrLn ("Tried letters:" ++ letters) 
+
+showPanel :: String -> IO ()
+showPanel panel = putStrLn panel 
